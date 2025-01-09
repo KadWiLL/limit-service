@@ -4,5 +4,5 @@ spring:
 
 
 limit-service:
-  minimum: 2
-  maximum: 998
+  minimum: ${min}
+  maximum: ${max}
