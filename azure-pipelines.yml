@@ -10,14 +10,20 @@ pool:
   name: Default
 
 steps:
-- task: Maven@3
+- task: JavaToolInstaller@0
+  displayName: "Setup Java"
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    versionSpec: "17"
+    jdkArchitectureOption: x64
+    jdkSourceOption: LocalDirectory
+    jdkFile: "/root/installs/jdk-17.tar.gz"
+    jdkDestinationDirectory: "/builds/binaries/externals"
+    cleanDestinationDirectory: true
+
+- task: CmdLine@2
+  displayName: Build and Deploy
+  inputs:
+    script: |
+        docker-compose -f ./deploy/docker-compose-dev.yml -p "middleware" build
+        docker-compose -f ./deploy/docker-compose-dev.yml -p "middleware" up -d
 
