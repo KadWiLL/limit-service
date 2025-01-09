@@ -4,7 +4,7 @@ services:
     image: limit-service:dev
     build:
       context: ../
-      dockerfile: ./deploy/docker/dev/Dockerfile
+      dockerfile: ./docker/dev/Dockerfile
     container_name: limit-service-dev
     ports:
       - 3001:8080
