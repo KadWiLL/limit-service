@@ -19,8 +19,8 @@ steps:
 
 - script: |
       echo "build docker image"
-      docker-compose -f ./deploy/docker-compose-dev.yml -p "develop" build
-      docker-compose -f ./deploy/docker-compose-dev.yml -p "develop" up -d
+      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" build
+      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" up -d
 
       
 
