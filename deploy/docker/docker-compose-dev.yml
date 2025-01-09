@@ -3,6 +3,7 @@ services:
   limit-service-dev:
     image: limit-service:dev
     build:
+      context: ../../../
       dockerfile: ./deploy/docker/dev/Dockerfile
     container_name: limit-service-dev
     ports:
