@@ -1,6 +1,7 @@
 FROM eclipse-temurin:17-jdk-jammy as builder
 
 WORKDIR /app
+RUN ls
 COPY limit-service/.mvn/ .mvn
 COPY limit-service/mvnw pom.xml ./
 COPY limit-service/.env.dev .env
@@ -20,7 +21,7 @@ COPY --from=builder /app/target/limit-service.jar /app/limit-service.jar
 ENV min=1 \
     max=1000
 
-ENTRYPOINT ["java","-jar"," /app/tcp-middleware.jar"]
+ENTRYPOINT ["java","-jar"," /app/limit-service.jar"]
 # RUN java -jar /opt/app/tcp-middleware.jar
 # RUN echo $SEND_MAIL_HOST
 # CMD ["java", "-jar", "/opt/app/tcp-middleware.jar" ]
