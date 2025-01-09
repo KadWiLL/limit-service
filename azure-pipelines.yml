@@ -19,6 +19,9 @@ steps:
 
 - script: |
       echo "build docker image"
+      echo "Current directory: $(pwd)"
+      echo "Directory contents:"
+      ls -R
       docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" build
       docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" up -d
 
