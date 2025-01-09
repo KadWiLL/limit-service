@@ -17,3 +17,11 @@ steps:
     docker-compose --version
   displayName: Verify Docker Installation
 
+steps:
+  - task: CmdLine@2
+    displayName: Build and Deploy
+    inputs:
+      script: |
+          docker-compose -f ./deploy/docker-compose-dev.yml -p "develop" build
+          docker-compose -f ./deploy/docker-compose-dev.yml -p "develop" up -d
+
