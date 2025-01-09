@@ -1,0 +1,17 @@
+version: "3"
+services:
+  tcp-middleware-dev:
+    image: tcp-middleware:dev
+    build:
+      context: ../
+      dockerfile: ./deploy/docker/dev/Dockerfile
+    container_name: tcp-middleware-dev
+    ports:
+      - 3001:8080
+    restart: unless-stopped
+    networks:
+      - db_network
+networks:
+  db_network:
+    external:
+      name: postgres-dev_postgres_network
