@@ -1,9 +1,9 @@
-FROM eclipse-temurin:17-jdk-jammy as builder
+FROM eclipse-temurin:17-jdk-jammy AS builder
 
 WORKDIR /app
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
-COPY .env.dev .env/
+COPY .env.dev .env
 RUN chmod 777 mvnw
 RUN ./mvnw dependency:go-offline
 COPY src/ ./src
