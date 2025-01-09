@@ -6,7 +6,7 @@ COPY mvnw pom.xml ./
 COPY .env.dev .env
 RUN chmod 777 mvnw
 RUN ./mvnw dependency:go-offline
-COPY src/ ./src
+COPY ./src/ src/
 RUN ./mvnw clean install -Dmaven.test.skip=true
 RUN ls
 RUN ls
@@ -15,7 +15,7 @@ RUN ls target
 
 FROM openjdk:17-oracle
 WORKDIR /app
-COPY .env.dev .env/
+COPY .env.dev .env
 COPY --from=builder /app/target/limit-service.jar /app/limit-service.jar
 ENV min=1 \
     max=1000
