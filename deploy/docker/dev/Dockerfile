@@ -6,7 +6,7 @@ COPY mvnw pom.xml ./
 COPY .env.dev .env
 RUN chmod 777 mvnw
 RUN ./mvnw dependency:go-offline
-COPY ./src src
+COPY . .
 RUN ./mvnw clean install -Dmaven.test.skip=true
 RUN ls
 RUN ls
