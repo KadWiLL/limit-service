@@ -1,9 +1,9 @@
 FROM eclipse-temurin:17-jdk-jammy AS builder
 
 WORKDIR /app
-RUN ls
+RUN ls -a
 COPY . .
-RUN ls
+RUN ls -a
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
 COPY .env.dev .env
