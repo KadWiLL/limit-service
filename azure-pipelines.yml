@@ -19,16 +19,15 @@ steps:
 
 - script: |
     echo "Debugging build context..."
-    ls -R .
-    ls -R ./deploy/docker/
+    echo "Current directory: $(pwd)"
     cat ./deploy/docker/docker-compose-dev.yml
+    cat ./deploy/docker/dev/Dockerfile
   displayName: Debug Build Context
 
 - script: |
       echo "build docker image"
       echo "Current directory: $(pwd)"
       echo "Directory contents:"
-      ls -R
       docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" build
       docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" up -d
 
