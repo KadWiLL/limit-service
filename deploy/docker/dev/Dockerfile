@@ -7,11 +7,8 @@ COPY .env.dev .env
 RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline
 COPY src ./src
+RUN ls -R /app
 RUN ./mvnw clean install -Dmaven.test.skip=true
-RUN ls
-RUN ls
-RUN ls
-RUN ls target
 
 FROM openjdk:17-oracle
 WORKDIR /app
