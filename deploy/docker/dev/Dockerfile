@@ -4,9 +4,9 @@ WORKDIR /app
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
 COPY .env.dev .env
-RUN chmod 777 mvnw
+RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline
-COPY ./src src
+COPY src ./src
 RUN ./mvnw clean install -Dmaven.test.skip=true
 RUN ls
 RUN ls

@@ -18,6 +18,13 @@ steps:
   displayName: Verify Docker Installation
 
 - script: |
+    echo "Debugging build context..."
+    ls -R .
+    ls -R ./deploy/docker/
+    cat ./deploy/docker/docker-compose-dev.yml
+  displayName: Debug Build Context
+
+- script: |
       echo "build docker image"
       echo "Current directory: $(pwd)"
       echo "Directory contents:"
