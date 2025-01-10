@@ -32,8 +32,8 @@ steps:
       echo "build docker image"
       echo "Current directory: $(pwd)"
       echo "Directory contents:"
-      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" build
-      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" up -d
+      docker-compose -f ./docker-compose-dev.yml -p "develop" build
+      docker-compose -f ./docker-compose-dev.yml -p "develop" up -d
 
       
 
