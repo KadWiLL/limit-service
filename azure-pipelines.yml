@@ -33,8 +33,8 @@ steps:
       echo "Current directory: $(pwd)"
       echo "Directory contents:"
       ls -R
-      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" build
-      docker-compose -f ./deploy/docker/docker-compose-dev.yml -p "develop" up -d
+      docker-compose -f ./pusyy/docker/docker-compose-dev.yml -p "develop" build
+      docker-compose -f ./pussy/docker/docker-compose-dev.yml -p "develop" up -d
 
       
 
