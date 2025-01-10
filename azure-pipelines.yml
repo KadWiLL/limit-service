@@ -23,6 +23,7 @@ steps:
 - script: |
     echo "Debugging build context..."
     echo "Current directory: $(pwd)"
+    ls -R
     cat ./deploy/docker/docker-compose-dev.yml
     cat ./deploy/docker/dev/Dockerfile
   displayName: Debug Build Context
