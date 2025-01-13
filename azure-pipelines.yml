@@ -30,8 +30,8 @@ steps:
 
 - script: |
     echo "Running Maven tests..."
-    chmod +x ./limit-service/mvnw
-    ./limit-service/mvnw clean test
+    chmod +x limit-service/mvnw
+    limit-service/mvnw clean test
   displayName: Run Maven Tests
 
 - script: |
