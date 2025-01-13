@@ -5,6 +5,8 @@ services:
     build:
       context: ../
       dockerfile: ./deploy/docker/dev/Dockerfile
+      args:
+        - --verbose
     container_name: limit-service-dev
     ports:
       - 3001:8080
