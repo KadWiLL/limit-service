@@ -30,6 +30,8 @@ steps:
 
 - script: |
     echo "Running Maven tests..."
+    echo "Checking Java installation..."
+    java --version
     chmod +x ./limit-service/mvnw
     ./limit-service/mvnw clean test
   displayName: Run Maven Tests
