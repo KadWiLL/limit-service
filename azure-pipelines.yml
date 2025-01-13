@@ -28,19 +28,19 @@ steps:
     cat ./deploy/docker/dev/Dockerfile
   displayName: Debug Build Context
 
-  - script: |
+- script: |
     echo "Running Maven tests..."
     chmod +x mvnw
     ./mvnw clean test
-  displayName: Run Maven Tests
+displayName: Run Maven Tests
 
 - script: |
-      echo "build docker image"
-      echo "Current directory: $(pwd)"
-      echo "Directory contents:"
-      ls -R
-      docker-compose -f deploy/docker-compose-dev.yml -p "develop" build
-      docker-compose -f deploy/docker-compose-dev.yml -p "develop" up -d
+    echo "build docker image"
+    echo "Current directory: $(pwd)"
+    echo "Directory contents:"
+    ls -R
+    docker-compose -f deploy/docker-compose-dev.yml -p "develop" build
+    docker-compose -f deploy/docker-compose-dev.yml -p "develop" up -d
 
       
 
