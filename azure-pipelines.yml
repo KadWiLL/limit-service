@@ -18,6 +18,8 @@ steps:
     echo "Checking Docker setup..."
     docker --version
     docker-compose --version
+    echo "Checking Java installation..."
+    java --version
   displayName: Verify Docker Installation
 
 - script: |
@@ -30,8 +32,6 @@ steps:
 
 - script: |
     echo "Running Maven tests..."
-    echo "Checking Java installation..."
-    java --version
     chmod +x ./limit-service/mvnw
     ./limit-service/mvnw clean test
   displayName: Run Maven Tests
